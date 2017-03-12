@@ -59,7 +59,7 @@ Windows you will need to use the Git Bash shell.
    
 4. Open a web browser and navigate to (http://localhost:5000/)
 
-5 (optional). The default installation includes a database called `farmfinder.db` in the 
+5. (Optional) The default installation includes a database called `farmfinder.db` in the 
 `/database` directory. If you ever want to regenerate the database, navigate 
 to the `/database` directory, delete the old one, and run the script 
 `dbsetdup.py` to create an empty database:
@@ -70,8 +70,8 @@ to the `/database` directory, delete the old one, and run the script
     $ python dbsetup.py
     ```
 
-To repopulate the database with the default dummy data, run the `lots_of_farms.py` 
-script:
+    To repopulate the database with the default dummy data, run the `lots_of_farms.py` 
+    script:
 
     ```
     $ python lots_of_farms.py
