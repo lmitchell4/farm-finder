@@ -1,6 +1,7 @@
 
 
-# Farm Finder Catalog Site <img align="middle" src="https://github.com/lmitchell4/farm-finder/blob/master/catalog/static/images/logo.png" alt="Site Logo">
+![Site Logo](https://github.com/lmitchell4/farm-finder/blob/master/catalog/static/images/logo.png) 
+# Farm Finder Catalog Site
 
 
 Farm Finder is a template for a website that connects people who grow 
