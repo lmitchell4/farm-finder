@@ -1,5 +1,6 @@
 
 
+![Site Logo](https://github.com/lmitchell4/farm-finder/blob/master/catalog/static/images/logo.png)
 # Farm Finder Catalog Site
 
 Farm Finder is a template for a website that connects people who grow 
@@ -12,7 +13,7 @@ open to bartering for items grown by their fellow farmers.
 
 ## Overview
 
-The site was built with [Python 2.7.6](https://www.python.org/downloads/), 
+The site was built with [Python 2.7.6](https://www.python.org/downloads/) and 
 the [Flask](http://flask.pocoo.org/) web development framework. 
 
 The repo includes a Vagrant Virtual Machine (VM) that can be used to run the 
@@ -57,7 +58,7 @@ Windows you will need to use the Git Bash shell.
     $ python runserver.py
     ```
    
-4. Open a web browser and navigate to (http://localhost:5000/)
+4. Open a web browser and navigate to [http://localhost:5000/](http://localhost:5000/)
 
 5. (Optional) The default installation includes a database called `farmfinder.db` in the 
 `/database` directory. If you ever want to regenerate the database, navigate 
