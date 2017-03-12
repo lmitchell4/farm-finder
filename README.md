@@ -1,7 +1,6 @@
 
 
-![Site Logo](https://github.com/lmitchell4/farm-finder/blob/master/catalog/static/images/logo.png)
-# Farm Finder Catalog Site
+![Site Logo](https://github.com/lmitchell4/farm-finder/blob/master/catalog/static/images/logo.png) # Farm Finder Catalog Site
 
 Farm Finder is a template for a website that connects people who grow 
 their own food with people who are looking for home-grown food items. 
