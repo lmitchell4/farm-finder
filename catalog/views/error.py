@@ -17,8 +17,4 @@ def errorShow():
   """Page for when there is an error."""
   username = login_session.get("username")
 
-  if username:
-    return render_template("error.html", username=username)
-
-  else:
-    return render_template("error.html")
+  return render_template("error.html", username=username)

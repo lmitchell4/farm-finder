@@ -21,11 +21,6 @@ def profileShow(farm_id):
   farm = db_session.query(Farm).filter_by(id=farm_id).one()
   username = login_session.get("username")
 
-  if username:
-    return render_template("profile.html",
-                           farm=farm,
-                           username=username)
-
-  else:
-    return render_template("profile.html",
-                           farm=farm)
+  return render_template("profile.html",
+                          farm=farm,
+                          username=username)

@@ -22,13 +22,7 @@ def eventShow(farm_id):
   events = db_session.query(Event).filter_by(farm_id=farm_id).all()
   username = login_session.get("username")
 
-  if username:
-    return render_template("events.html",
-                           farm=farm,
-                           events=events,
-                           username=username)
-
-  else:
-    return render_template("events.html",
-                           farm=farm,
-                           events=events)
+  return render_template("events.html",
+                         farm=farm,
+                         events=events,
+                         username=username)

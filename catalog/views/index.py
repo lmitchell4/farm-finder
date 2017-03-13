@@ -20,9 +20,5 @@ def showIndex():
   user_id = login_session.get("user_id")
   username = login_session.get("username")
 
-  if not (user_id and username):
-    return render_template("index.html")
-
-  else:
-    return render_template("index.html",
-                           username=username)
+  return render_template("index.html",
+                         username=username)

@@ -30,15 +30,8 @@ def catalogShow(farm_id):
     else:
       items[item.category] = [item]
 
-  if username:
-    return render_template("catalog.html",
-                           farm=farm,
-                           items=items,
-                           itemCategories=itemCategories,
-                           username=username)
-
-  else:
-    return render_template("catalog.html",
-                           items=items,
-                           itemCategories=itemCategories,
-                           farm=farm)
+  return render_template("catalog.html",
+                         farm=farm,
+                         items=items,
+                         itemCategories=itemCategories,
+                         username=username)
