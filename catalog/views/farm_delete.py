@@ -13,10 +13,13 @@ from catalog.database.dbsetup import Farm
 from catalog.database.dbconnect import db_session
 from catalog.views.util import imageDeleteProfile
 
+from util import login_required
+
 ############################################################################
 
 
 @app.route("/farms/<int:farm_id>/delete", methods=["GET","POST"])
+@login_required
 def farmDelete(farm_id):
   """Delete an existing farm."""
   farm = db_session.query(Farm).filter_by(id = farm_id).one()
@@ -24,15 +27,8 @@ def farmDelete(farm_id):
   user_id = login_session.get("user_id")
   username = login_session.get("username")
 
-  # If no one is logged in, redirect to /catalogShow:
-  if not (user_id and username):
-    return redirect(url_for("catalogShow",farm_id=farm_id))
-
-  elif user_id != farm.user_id:
-    return redirect(url_for("catalogShow",farm_id=farm_id))
-
   # Check that the login_session user_id matches the farm user_id:
-  elif user_id == farm.user_id:
+  if user_id == farm.user_id:
     if request.method == "POST":
       if farm.picture:
         imageDeleteProfile(filename=farm.picture)
@@ -46,3 +42,6 @@ def farmDelete(farm_id):
       return render_template("farmDelete.html",
                               farm=farm,
                               username=username)
+
+  else:
+    return redirect(url_for("catalogShow",farm_id=farm_id))

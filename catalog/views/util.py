@@ -1,6 +1,8 @@
 
 """ Module summary:
-Utility functions for accessing user data and managing user images:
+Utility functions for checking login, accessing user data, and managing 
+user images:
+  login_required - Verify that a user is logged in when required.
   createUser - Create a new user and add them to the database.
   getUserInfo - Retrieve user object by their id.
   getUserID - Retrieve user object by their email address.
@@ -12,7 +14,11 @@ Utility functions for accessing user data and managing user images:
 """
 
 import os
+from functools import wraps
 from werkzeug.utils import secure_filename
+
+from flask import session as login_session
+from flask import url_for, flash, redirect
 
 from catalog import app
 from catalog.database.dbsetup import User
@@ -22,6 +28,18 @@ from catalog.database.dbconnect import db_session
 
 
 # Helper functions for user login processes:
+def login_required(f):
+  """Verify that a user is logged in when required."""
+  @wraps(f)
+  def decorated_function(*args, **kwargs):
+    if "user_id" in login_session:
+      return f(*args, **kwargs)
+    else:
+      flash("You are not allowed to access that page.")
+      return redirect('/login')
+  return decorated_function
+
+
 def createUser(login_session):
   """Create a new user and add them to the database."""
   newUser = User(name=login_session["g_username"],

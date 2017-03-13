@@ -13,19 +13,19 @@ from catalog.database.dbsetup import Farm
 from catalog.database.dbconnect import db_session
 from catalog.views.util import imageUploadProfile, imageDeleteProfile
 
+from util import login_required
+
 ############################################################################
 
 
 @app.route("/farms/<int:farm_id>/profile/edit", methods=["GET","POST"])
+@login_required
 def profileEdit(farm_id):
   """Edit the profile for a given farm."""
   farm = db_session.query(Farm).filter_by(id=farm_id).one()
 
   user_id = login_session.get("user_id")
   username = login_session.get("username")
-
-  if not user_id:
-    return redirect(url_for("showLogin"))
 
   if user_id != farm.user_id:
     return redirect(url_for("errorShow"))
@@ -42,7 +42,6 @@ def profileEdit(farm_id):
       farm.location = request.form["location"]
       farm.description = request.form["description"]
 
-      # no_pic = request.form["removepicture"]
       f = request.form
       existing_pic = farm.picture
       remove_pic = "removepicture" in f.keys() and \

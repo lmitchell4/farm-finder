@@ -12,11 +12,14 @@ from catalog import app
 from catalog.database.dbsetup import Farm, Event
 from catalog.database.dbconnect import db_session
 
+from util import login_required
+
 ############################################################################
 
 
 @app.route("/farms/<int:farm_id>/events/<int:event_id>/delete",
             methods=["GET","POST"])
+@login_required
 def eventDelete(farm_id, event_id):
   """Delete an event."""
   farm = db_session.query(Farm).filter_by(id=farm_id).one()
@@ -24,12 +27,6 @@ def eventDelete(farm_id, event_id):
 
   user_id = login_session.get("user_id")
   username = login_session.get("username")
-
-  if not user_id:
-    return redirect(url_for("showLogin"))
-
-  if user_id != farm.user_id:
-    return redirect(url_for("errorShow"))
 
   if user_id == farm.user_id:
     if request.method == "POST":
@@ -44,3 +41,6 @@ def eventDelete(farm_id, event_id):
                              farm=farm,
                              event=event,
                              username=username)
+
+  else:
+    return redirect(url_for("errorShow"))
