@@ -8,7 +8,6 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from flask import flash
 from flask import session as login_session
 
-# from catalog import app
 from catalog.database.dbsetup import Farm, CatalogItem, itemCategories
 from catalog.database.dbconnect import db_session
 from catalog.views.util import imageUploadItem
@@ -30,30 +29,37 @@ def newItem(farm_id):
 
   if user_id == farm.user_id:
     if request.method == "POST":
-      if not request.form["name"]:
+      name = request.form.get("name")
+      description = request.form.get("description")
+      price = request.form.get("price")
+      category = request.form.get("category")
+
+      name_error = None
+      category_error = None
+
+      if not name:
+        name_error = True
+      if not category:
+        category_error = True
+
+      if name_error or category_error:
         return render_template("catalogItemNew.html",
-                               name_error=True,
+                               name_error=name_error,
+                               category_error=category_error,
                                farm=farm,
                                itemCategories=itemCategories,
                                username=username)
 
-      if not request.form["category"]:
-        return render_template("catalogItemNew.html",
-                               category_error=True,
-                               farm=farm,
-                               itemCategories=itemCategories,                               
-                               username=username)
-                             
-      newItem = CatalogItem(name=request.form["name"],
-                            description=request.form["description"],
-                            price=request.form["price"],
-                            category=request.form["category"],
+      newItem = CatalogItem(name=name,
+                            description=description,
+                            price=price,
+                            category=category,
                             farm_id=farm_id,
                             user_id=farm.user_id,
                             picture=None)
       db_session.add(newItem)
       db_session.commit()
-     
+
       picture = request.files["picture"]
       if picture:
         db_session.refresh(newItem)

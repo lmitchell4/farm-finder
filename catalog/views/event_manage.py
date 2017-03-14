@@ -7,7 +7,6 @@ Functions:
 from flask import Blueprint, render_template, redirect, url_for
 from flask import session as login_session
 
-# from catalog import app
 from catalog.database.dbsetup import Farm, Event
 from catalog.database.dbconnect import db_session
 

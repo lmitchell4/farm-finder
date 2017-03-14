@@ -9,7 +9,6 @@ from flask import session as login_session
 
 from sqlalchemy import asc
 
-# from catalog import app
 from catalog.database.dbsetup import Farm
 from catalog.database.dbconnect import db_session
 

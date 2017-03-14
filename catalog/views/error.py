@@ -7,8 +7,6 @@ Functions:
 from flask import Blueprint, render_template
 from flask import session as login_session
 
-# from catalog import app
-
 ############################################################################
 
 error = Blueprint("error", __name__)

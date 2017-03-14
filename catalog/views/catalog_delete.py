@@ -8,7 +8,6 @@ from flask import Blueprint, render_template, request, redirect
 from flask import url_for, flash
 from flask import session as login_session
 
-# from catalog import app
 from catalog.database.dbsetup import Farm, CatalogItem
 from catalog.database.dbconnect import db_session
 from catalog.views.util import imageDeleteItem

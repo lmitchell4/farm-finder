@@ -9,8 +9,6 @@ from flask import session as login_session
 
 from sqlalchemy import asc
 
-# from catalog import app
-
 ############################################################################
 
 index = Blueprint("index", __name__)

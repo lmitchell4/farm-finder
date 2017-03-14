@@ -17,7 +17,6 @@ from flask import session as login_session
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
 
-# from catalog import app
 from catalog.database.dbsetup import User
 from catalog.database.dbconnect import db_session
 from catalog.views.util import createUser, getUserID

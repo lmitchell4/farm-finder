@@ -8,7 +8,6 @@ from flask import Blueprint, render_template, request, redirect
 from flask import url_for, flash
 from flask import session as login_session
 
-# from catalog import app
 from catalog.database.dbsetup import Farm, CatalogItem, itemCategories
 from catalog.database.dbconnect import db_session
 from catalog.views.util import imageUploadItem, imageDeleteItem
@@ -32,6 +31,28 @@ def editCatalogItem(farm_id, item_id):
 
   if user_id == item.user_id:
     if request.method == "POST":
+      name = request.form.get("name")
+      description = request.form.get("description")
+      price = request.form.get("price")
+      category = request.form.get("category")
+
+      name_error = None
+      category_error = None
+
+      if not name:
+        name_error = True
+      if not category:
+        category_error = True
+
+      if name_error or category_error:
+        return render_template("catalogItemEdit.html",
+                               name_error=name_error,
+                               category_error=category_error,
+                               farm=farm,
+                               item=item,
+                               itemCategories=itemCategories,
+                               username=username)
+
       item.name = request.form["name"]
       item.description = request.form["description"]
       item.price = request.form["price"]
