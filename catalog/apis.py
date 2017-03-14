@@ -12,7 +12,6 @@ Functions for creating JSON API endpoints:
 
 from flask import Blueprint, jsonify
 
-# from catalog import app
 from database.dbsetup import Farm, CatalogItem, Event
 from database.dbconnect import db_session
 
