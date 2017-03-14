@@ -4,10 +4,11 @@ Functions:
   profileEdit - Edit the profile for a given farm.
 """
 
-from flask import render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for
+from flask import flash
 from flask import session as login_session
 
-from catalog import app
+# from catalog import app
 from catalog.database.dbsetup import Farm
 from catalog.database.dbconnect import db_session
 from catalog.views.util import imageUploadProfile, imageDeleteProfile
@@ -16,8 +17,9 @@ from util import login_required
 
 ############################################################################
 
+profile_edit = Blueprint("profile_edit", __name__)
 
-@app.route("/farms/<int:farm_id>/profile/edit", methods=["GET","POST"])
+@profile_edit.route("/farms/<int:farm_id>/profile/edit", methods=["GET","POST"])
 @login_required
 def profileEdit(farm_id):
   """Edit the profile for a given farm."""
@@ -27,7 +29,7 @@ def profileEdit(farm_id):
   username = login_session.get("username")
 
   if user_id != farm.user_id:
-    return redirect(url_for("errorShow"))
+    return redirect(url_for("error.errorShow"))
 
   if user_id == farm.user_id:
     if request.method == "POST":
@@ -62,7 +64,8 @@ def profileEdit(farm_id):
       db_session.add(farm)
       db_session.commit()
       flash("Profile Successfully Edited")
-      return redirect(url_for("profileManage", farm_id=farm_id))
+      return redirect(url_for("profile_manage.profileManage", 
+                              farm_id=farm_id))
 
     else:
       return render_template("profileEdit.html",

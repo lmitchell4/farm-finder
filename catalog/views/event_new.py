@@ -4,10 +4,11 @@ Functions:
   eventNew - Create a new event.
 """
 
-from flask import render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for
+from flask import flash
 from flask import session as login_session
 
-from catalog import app
+# from catalog import app
 from catalog.database.dbsetup import Farm, Event
 from catalog.database.dbconnect import db_session
 
@@ -15,8 +16,9 @@ from util import login_required
 
 ############################################################################
 
+event_new = Blueprint("event_new", __name__)
 
-@app.route("/farms/<int:farm_id>/events/new", methods=["GET","POST"])
+@event_new.route("/farms/<int:farm_id>/events/new", methods=["GET","POST"])
 @login_required
 def eventNew(farm_id):
   """Create a new event."""
@@ -41,7 +43,7 @@ def eventNew(farm_id):
       db_session.add(event)
       flash("New Event Successfully Created: %s" % event.name)
       db_session.commit()
-      return redirect(url_for("eventManage",farm_id=farm.id))
+      return redirect(url_for("event_manage.eventManage",farm_id=farm.id))
 
     else:
       return render_template("eventNew.html",
@@ -49,4 +51,4 @@ def eventNew(farm_id):
                              username=username)
 
   else:
-    return redirect(url_for("errorShow"))
+    return redirect(url_for("error.errorShow"))

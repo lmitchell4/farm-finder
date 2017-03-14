@@ -4,10 +4,10 @@ Functions:
   profileManage - Show the profile for a given farm in manage mode.
 """
 
-from flask import render_template, redirect, url_for
+from flask import Blueprint, render_template, redirect, url_for
 from flask import session as login_session
 
-from catalog import app
+# from catalog import app
 from catalog.database.dbsetup import Farm
 from catalog.database.dbconnect import db_session
 
@@ -15,8 +15,9 @@ from util import login_required
 
 ############################################################################
 
+profile_manage = Blueprint("profile_manage", __name__)
 
-@app.route("/farms/<int:farm_id>/profile/manage")
+@profile_manage.route("/farms/<int:farm_id>/profile/manage")
 @login_required
 def profileManage(farm_id):
   """Show the profile for a given farm in manage mode."""
@@ -26,7 +27,7 @@ def profileManage(farm_id):
   username = login_session.get("username")
 
   if user_id != farm.user_id:
-    return redirect(url_for("errorShow"))
+    return redirect(url_for("error.errorShow"))
 
   if user_id == farm.user_id:
     return render_template("profileManage.html",

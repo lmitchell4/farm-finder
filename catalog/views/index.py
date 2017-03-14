@@ -4,17 +4,18 @@ Functions:
   showIndex - Show site home.
 """
 
-from flask import render_template
+from flask import Blueprint, render_template
 from flask import session as login_session
 
 from sqlalchemy import asc
 
-from catalog import app
+# from catalog import app
 
 ############################################################################
 
+index = Blueprint("index", __name__)
 
-@app.route("/")
+@index.route("/")
 def showIndex():
   """Show site home."""
   user_id = login_session.get("user_id")

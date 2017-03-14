@@ -10,20 +10,21 @@ import httplib2
 import json
 import requests
 
-from flask import render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for
+from flask import flash, make_response
 from flask import session as login_session
-from flask import make_response
 
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
 
-from catalog import app
+# from catalog import app
 from catalog.database.dbsetup import User
 from catalog.database.dbconnect import db_session
 from catalog.views.util import createUser, getUserID
 
 ############################################################################
 
+login = Blueprint("login", __name__)
 
 # Google API client id:
 G_CLIENT_ID = json.loads(
@@ -31,13 +32,13 @@ G_CLIENT_ID = json.loads(
 
 
 # Define url handlers:
-@app.route("/login")
+@login.route("/login")
 def showLogin():
   """Load the login page."""
   user_id = login_session.get("user_id")
 
   if user_id:
-    return redirect(url_for("farmsManage"))
+    return redirect(url_for("farm_manage.farmsManage"))
 
   state = "".join(random.choice(string.ascii_uppercase +
                   string.digits) for x in xrange(32))
@@ -45,7 +46,7 @@ def showLogin():
   return render_template("login.html", STATE=state, G_CLIENT_ID=G_CLIENT_ID)
 
 
-@app.route("/gconnect", methods=["POST"])
+@login.route("/gconnect", methods=["POST"])
 def gconnect():
   """Sign in to user's Google account."""
   if request.args.get("state") != login_session["state"]:

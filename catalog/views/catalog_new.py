@@ -4,10 +4,11 @@ Functions:
   newItem - Create a new catalog item and add it to the database.
 """
 
-from flask import render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for
+from flask import flash
 from flask import session as login_session
 
-from catalog import app
+# from catalog import app
 from catalog.database.dbsetup import Farm, CatalogItem, itemCategories
 from catalog.database.dbconnect import db_session
 from catalog.views.util import imageUploadItem
@@ -16,8 +17,9 @@ from util import login_required
 
 ############################################################################
 
+catalog_new = Blueprint("catalog_new", __name__)
 
-@app.route("/farms/<int:farm_id>/catalog/new", methods=["GET","POST"])
+@catalog_new.route("/farms/<int:farm_id>/catalog/new", methods=["GET","POST"])
 @login_required
 def newItem(farm_id):
   """Create a new catalog item and add it to the database."""
@@ -28,6 +30,20 @@ def newItem(farm_id):
 
   if user_id == farm.user_id:
     if request.method == "POST":
+      if not request.form["name"]:
+        return render_template("catalogItemNew.html",
+                               name_error=True,
+                               farm=farm,
+                               itemCategories=itemCategories,
+                               username=username)
+
+      if not request.form["category"]:
+        return render_template("catalogItemNew.html",
+                               category_error=True,
+                               farm=farm,
+                               itemCategories=itemCategories,                               
+                               username=username)
+                             
       newItem = CatalogItem(name=request.form["name"],
                             description=request.form["description"],
                             price=request.form["price"],
@@ -37,19 +53,19 @@ def newItem(farm_id):
                             picture=None)
       db_session.add(newItem)
       db_session.commit()
-
+     
       picture = request.files["picture"]
       if picture:
         db_session.refresh(newItem)
-        picture_name = imageUploadItem(farm_id=farm.id,
-                                        item_id=newItem.id,
-                                        file=picture)
+        picture_name = imageUploadItem(farm_id=farm_id,
+                                       item_id=newItem.id,
+                                       file=picture)
         newItem.picture = picture_name
         db_session.add(newItem)
         db_session.commit()
 
       flash("New Item Successfully Created: %s" % (newItem.name))
-      return redirect(url_for("catalogManage", farm_id=farm_id))
+      return redirect(url_for("catalog_manage.catalogManage", farm_id=farm_id))
 
     else:
       return render_template("catalogItemNew.html",
@@ -58,4 +74,4 @@ def newItem(farm_id):
                              username=username)
 
   else:
-    return redirect(url_for("errorShow"))
+    return redirect(url_for("error.errorShow"))

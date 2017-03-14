@@ -4,18 +4,19 @@ Functions:
   catalogShow - Show the catalog for a given farm."
 """
 
-from flask import render_template
+from flask import Blueprint, render_template
 from flask import session as login_session
 
-from catalog import app
+# from catalog import app
 from catalog.database.dbsetup import Farm, CatalogItem, itemCategories
 from catalog.database.dbconnect import db_session
 
 ############################################################################
 
+catalog_show = Blueprint("catalog_show", __name__)
 
-@app.route("/farms/<int:farm_id>")
-@app.route("/farms/<int:farm_id>/catalog")
+@catalog_show.route("/farms/<int:farm_id>")
+@catalog_show.route("/farms/<int:farm_id>/catalog")
 def catalogShow(farm_id):
   """Show the catalog for a given farm."""
   farm = db_session.query(Farm).filter_by(id=farm_id).one()

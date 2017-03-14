@@ -4,10 +4,11 @@ Functions:
   newFarm - Create a new farm and add it to the database.
 """
 
-from flask import render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for
+from flask import flash
 from flask import session as login_session
 
-from catalog import app
+# from catalog import app
 from catalog.database.dbsetup import Farm
 from catalog.database.dbconnect import db_session
 from catalog.views.util import imageUploadProfile
@@ -16,8 +17,9 @@ from util import login_required
 
 ############################################################################
 
+farm_new = Blueprint("farm_new", __name__)
 
-@app.route("/farms/new", methods=["GET","POST"])
+@farm_new.route("/farms/new", methods=["GET","POST"])
 @login_required
 def newFarm():
   """Create a new farm and add it to the database."""
@@ -48,7 +50,7 @@ def newFarm():
       db_session.commit()
 
     flash("New Farm %s Successfully Created" % newFarm.name)
-    return redirect(url_for("farmsManage"))
+    return redirect(url_for("farm_manage.farmsManage"))
 
   else:
     return render_template("farmNew.html",

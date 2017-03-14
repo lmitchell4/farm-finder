@@ -4,10 +4,10 @@ Functions:
   eventManage - Show the events for a given farm in manage mode.
 """
 
-from flask import render_template, redirect, url_for
+from flask import Blueprint, render_template, redirect, url_for
 from flask import session as login_session
 
-from catalog import app
+# from catalog import app
 from catalog.database.dbsetup import Farm, Event
 from catalog.database.dbconnect import db_session
 
@@ -15,8 +15,9 @@ from util import login_required
 
 ############################################################################
 
+event_manage = Blueprint("event_manage", __name__)
 
-@app.route("/farms/<int:farm_id>/events/manage")
+@event_manage.route("/farms/<int:farm_id>/events/manage")
 @login_required
 def eventManage(farm_id):
   """Show the events for a given farm in manage mode."""
@@ -33,5 +34,5 @@ def eventManage(farm_id):
                            username=username)
 
   else:
-    return redirect(url_for("errorShow"))
+    return redirect(url_for("error.errorShow"))
                            

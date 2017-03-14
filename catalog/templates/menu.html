@@ -6,9 +6,9 @@
       {% if username %}
         <li></li>
         <li></li>
-        <li><a href="{{ url_for('farmsShowAll') }}" id="view-btn">All Farms</a></li>
+        <li><a href="{{ url_for('farm_show_all.farmsShowAll') }}" id="view-btn">All Farms</a></li>
         <li></li>
-        <li><a href="{{ url_for('farmsManage') }}" id="manage-btn">My Farms</a></li>
+        <li><a href="{{ url_for('farm_manage.farmsManage') }}" id="manage-btn">My Farms</a></li>
         <li></li>
         <li><a href="#" id="profile-btn">My Profile</a></li>
         <li></li>
@@ -18,7 +18,7 @@
       {% else %}
         <li></li>
         <li></li>
-        <li><a href="{{ url_for('farmsShowAll') }}" id="view-btn">All Farms</a></li>
+        <li><a href="{{ url_for('farm_show_all.farmsShowAll') }}" id="view-btn">All Farms</a></li>
         <li></li>
         <li><a href="#" id="discussion-btn">Discussions</a></li>
         <li></li>

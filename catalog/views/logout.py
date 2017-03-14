@@ -8,22 +8,24 @@ Functions:
 import httplib2
 import json
 
-from flask import request, redirect, url_for, flash, make_response
+from flask import Blueprint, request, redirect, url_for, flash, make_response
 from flask import session as login_session
 
-from catalog import app
+# from catalog import app
 from catalog.database.dbconnect import db_session
 
 ############################################################################
 
-@app.route("/clearSession")
+logout = Blueprint("logout", __name__)
+
+@logout.route("/clearSession")
 def clearsession():
   """Clear the session information."""
   login_session.clear()
   return "ok"
 
 
-@app.route("/gdisconnect", methods=["GET","POST"])
+@logout.route("/gdisconnect", methods=["GET","POST"])
 def gdisconnect():
   """Disconnect from user's Google account."""
   # Only disconnect a connected user.
@@ -57,4 +59,4 @@ def gdisconnect():
   # print result
 
   login_session.clear()
-  return redirect(url_for("farmsShowAll"))
+  return redirect(url_for("farm_show_all.farmsShowAll"))

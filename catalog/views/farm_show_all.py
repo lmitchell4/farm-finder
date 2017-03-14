@@ -4,19 +4,20 @@ Functions:
   farmsShowAll - Show all farms.
 """
 
-from flask import render_template
+from flask import Blueprint, render_template
 from flask import session as login_session
 
 from sqlalchemy import asc
 
-from catalog import app
+# from catalog import app
 from catalog.database.dbsetup import Farm
 from catalog.database.dbconnect import db_session
 
 ############################################################################
 
+farm_show_all = Blueprint("farm_show_all", __name__)
 
-@app.route("/farms")
+@farm_show_all.route("/farms")
 def farmsShowAll():
   """Show all farms."""
   farms = db_session.query(Farm).order_by(asc(Farm.name))

@@ -20,7 +20,7 @@ from werkzeug.utils import secure_filename
 from flask import session as login_session
 from flask import url_for, flash, redirect
 
-from catalog import app
+# from catalog import app
 from catalog.database.dbsetup import User
 from catalog.database.dbconnect import db_session
 

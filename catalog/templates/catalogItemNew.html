@@ -11,9 +11,9 @@
   <div class="container">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs nav-justified" id="farm-tabs">
-      <li class="active"><a href="{{ url_for('catalogManage',farm_id=farm.id) }}">Catalog</a></li>
-      <li><a href="{{ url_for('profileManage',farm_id=farm.id) }}">Profile</a></li>
-      <li><a href="{{ url_for('eventManage',farm_id=farm.id) }}">Events</a></li>
+      <li class="active"><a href="{{ url_for('catalog_manage.catalogManage',farm_id=farm.id) }}">Catalog</a></li>
+      <li><a href="{{ url_for('profile_manage.profileManage',farm_id=farm.id) }}">Profile</a></li>
+      <li><a href="{{ url_for('event_manage.eventManage',farm_id=farm.id) }}">Events</a></li>
     </ul>
 
     <div class="main-panel">
@@ -28,6 +28,9 @@
             <div class="col-xs-9 padding-top">
               <label for="name">Name:</label>
               <input class="form-control" type="text" maxlength="250" name="name" placeholder="Name of the item">
+              {% if name_error %}
+                <p class="red">You must enter an item name.</p>
+              {% endif %}
             </div>
           </div>
 
@@ -56,6 +59,9 @@
                   <option value="{{ category }}">{{ category }}</option>
                 {% endfor %}
               </select>
+              {% if category_error %}
+                <p class="red">You must select a category.</p>
+              {% endif %}
             </div>
           </div>
 
@@ -75,7 +81,7 @@
                   Create
                 </button>
 
-                <a href="{{ url_for('catalogManage',farm_id=farm.id) }}" id="cancel-btn">
+                <a href="{{ url_for('catalog_manage.catalogManage',farm_id=farm.id) }}" id="cancel-btn">
                   Cancel
                 </a>
               </div>
