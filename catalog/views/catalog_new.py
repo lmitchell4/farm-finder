@@ -4,8 +4,7 @@ Functions:
   newItem - Create a new catalog item and add it to the database.
 """
 
-from flask import Flask, render_template, request, redirect, jsonify
-from flask import url_for, flash
+from flask import render_template, request, redirect, url_for, flash
 from flask import session as login_session
 
 from catalog import app

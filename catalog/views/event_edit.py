@@ -4,8 +4,7 @@ Functions:
   eventEdit - Edit an event.
 """
 
-from flask import Flask, render_template, request, redirect, jsonify
-from flask import url_for, flash
+from flask import render_template, request, redirect, url_for, flash
 from flask import session as login_session
 
 from catalog import app

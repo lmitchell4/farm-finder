@@ -4,8 +4,7 @@ Functions:
   profileShow - Show the profile for a given farm.
 """
 
-from flask import Flask, render_template, request, redirect, jsonify
-
+from flask import render_template
 from flask import session as login_session
 
 from catalog import app

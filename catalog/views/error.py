@@ -4,7 +4,7 @@ Functions:
   errorShow - Page for when there is an error.
 """
 
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import render_template
 from flask import session as login_session
 
 from catalog import app

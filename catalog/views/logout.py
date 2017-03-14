@@ -5,13 +5,11 @@ Functions:
   gdisconnect - Disconnect from user's Google account.
 """
 
-from flask import Flask, render_template, request, redirect, jsonify
-from flask import url_for, flash
-from flask import session as login_session
-from flask import make_response
-
 import httplib2
 import json
+
+from flask import request, redirect, url_for, flash, make_response
+from flask import session as login_session
 
 from catalog import app
 from catalog.database.dbconnect import db_session

@@ -4,8 +4,7 @@ Functions:
   profileManage - Show the profile for a given farm in manage mode.
 """
 
-from flask import Flask, render_template, request, redirect, jsonify
-from flask import url_for, flash
+from flask import render_template, redirect, url_for
 from flask import session as login_session
 
 from catalog import app

@@ -4,8 +4,7 @@ Functions:
   farmsShowAll - Show all farms.
 """
 
-from flask import Flask, render_template, request, redirect, jsonify
-from flask import url_for, flash
+from flask import render_template
 from flask import session as login_session
 
 from sqlalchemy import asc
