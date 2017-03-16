@@ -41,9 +41,9 @@
                 <h3>{{ e.name }}</h3>
                 <p>{{ e.description }}</p>
 
-                <a href="{{ url_for('event_edit.eventEdit',farm_id=farm.id,event_id=e.id) }}" class="inline">Edit</a>
+                <a href="{{ url_for('event.eventEdit',farm_id=farm.id,event_id=e.id) }}" class="inline">Edit</a>
                 <p class="inline">|</p>
-                <a href="{{ url_for('event_delete.eventDelete',farm_id=farm.id,event_id=e.id) }}" class="inline">Delete</a>
+                <a href="{{ url_for('event.eventDelete',farm_id=farm.id,event_id=e.id) }}" class="inline">Delete</a>
               </div>
             </div>
           {% endfor %}
@@ -57,7 +57,7 @@
         </div>
         <div class="row">
           <div id="center-btn-container">
-            <a href="{{ url_for('event_new.eventNew',farm_id=farm.id) }}" id="solid-a-btn">
+            <a href="{{ url_for('event.eventNew',farm_id=farm.id) }}" id="solid-a-btn">
               Add Event
             </a>
           </div>

@@ -10,9 +10,9 @@
   <div class="container">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs nav-justified" id="farm-tabs">
-      <li><a href="{{ url_for('catalog_show.catalogShow',farm_id=farm.id) }}">Catalog</a></li>
-      <li><a href="{{ url_for('profile_show.profileShow',farm_id=farm.id) }}">Profile</a></li>
-      <li class="active"><a href="{{ url_for('event_show.eventShow',farm_id=farm.id) }}">Events</a></li>
+      <li><a href="{{ url_for('catalog.catalogShow',farm_id=farm.id) }}">Catalog</a></li>
+      <li><a href="{{ url_for('profile.profileShow',farm_id=farm.id) }}">Profile</a></li>
+      <li class="active"><a href="{{ url_for('event.eventShow',farm_id=farm.id) }}">Events</a></li>
     </ul>
 
     <div class="main-panel">

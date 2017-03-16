@@ -47,9 +47,9 @@
                     <p>{{ i.description }}</p>
                     <p class="item-price">{{ i.price }}</p>
 
-                    <a href="{{ url_for('catalog_edit.editCatalogItem',farm_id=farm.id,item_id=i.id) }}" class="inline">Edit</a>
+                    <a href="{{ url_for('catalog.editCatalogItem',farm_id=farm.id,item_id=i.id) }}" class="inline">Edit</a>
                     <p class="inline">|</p>
-                    <a href="{{ url_for('catalog_delete.deleteCatalogItem',farm_id=farm.id,item_id=i.id) }}" class="inline">Delete</a>
+                    <a href="{{ url_for('catalog.deleteCatalogItem',farm_id=farm.id,item_id=i.id) }}" class="inline">Delete</a>
                   </div>
                 </div>
               {% endfor %}
@@ -66,7 +66,7 @@
         </div>
         <div class="row">
           <div id="center-btn-container">
-            <a href="{{ url_for('catalog_new.newItem',farm_id=farm.id) }}" id="solid-a-btn">
+            <a href="{{ url_for('catalog.newItem',farm_id=farm.id) }}" id="solid-a-btn">
               Add Item
             </a>
           </div>
