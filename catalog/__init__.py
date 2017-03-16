@@ -17,6 +17,7 @@ from .views.catalog_manage import catalog_manage
 from .views.catalog_edit import catalog_edit
 from .views.catalog_delete import catalog_delete
 from .views.catalog_new import catalog_new
+from .views.error import error
 from .views.event_show import event_show
 from .views.event_manage import event_manage
 from .views.event_edit import event_edit
@@ -54,6 +55,8 @@ app.register_blueprint(catalog_manage)
 app.register_blueprint(catalog_edit)
 app.register_blueprint(catalog_delete)
 app.register_blueprint(catalog_new)
+
+app.register_blueprint(error)
 
 app.register_blueprint(event_show)
 app.register_blueprint(event_manage)
