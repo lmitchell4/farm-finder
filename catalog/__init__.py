@@ -15,11 +15,8 @@ from .views.farm_new import farm_new
 from .views.catalog import catalog_show, catalog_manage, catalog_new
 from .views.catalog import catalog_edit, catalog_delete
 from .views.error import error
-from .views.event_show import event_show
-from .views.event_manage import event_manage
-from .views.event_edit import event_edit
-from .views.event_delete import event_delete
-from .views.event_new import event_new
+from .views.event import event_show, event_manage, event_new
+from .views.event import event_delete, event_edit
 from .views.profile import profile_show, profile_manage, profile_edit
 from .apis import apis
 
@@ -49,11 +46,7 @@ app.register_blueprint(catalog)
 
 app.register_blueprint(error)
 
-app.register_blueprint(event_show)
-app.register_blueprint(event_manage)
-app.register_blueprint(event_edit)
-app.register_blueprint(event_delete)
-app.register_blueprint(event_new)
+app.register_blueprint(event)
 
 app.register_blueprint(profile)
 
