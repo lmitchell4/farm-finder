@@ -13,7 +13,7 @@
     <ul class="nav nav-tabs nav-justified" id="farm-tabs">
       <li><a href="{{ url_for('catalog_manage.catalogManage',farm_id=farm.id) }}">Catalog</a></li>
       <li><a href="{{ url_for('profile_manage.profileManage',farm_id=farm.id) }}">Profile</a></li>
-      <li class="active"><a href="{{ url_for('event_manage.eventManage',farm_id=farm.id) }}">Events</a></li>
+      <li class="active"><a href="{{ url_for('event.eventManage',farm_id=farm.id) }}">Events</a></li>
     </ul>
 
     <div class="main-panel">
@@ -41,7 +41,7 @@
                   Delete
                 </button>
 
-                <a href="{{ url_for('event_manage.eventManage',farm_id=farm.id) }}" id="cancel-btn">
+                <a href="{{ url_for('event.eventManage',farm_id=farm.id) }}" id="cancel-btn">
                   Cancel
                 </a>
               </div>
