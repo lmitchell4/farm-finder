@@ -8,10 +8,7 @@ from flask import Flask
 from .views.index import index
 from .views.login import login
 from .views.logout import logout
-from .views.farm_show_all import farm_show_all
-from .views.farm_manage import farm_manage
-from .views.farm_delete import farm_delete
-from .views.farm_new import farm_new
+from .views.farm import farm
 from .views.catalog import catalog_show, catalog_manage, catalog_new
 from .views.catalog import catalog_edit, catalog_delete
 from .views.error import error
