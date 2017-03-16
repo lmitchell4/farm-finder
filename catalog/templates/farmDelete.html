@@ -10,9 +10,9 @@
   <div class="container">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs nav-justified" id="farm-tabs">
-      <li><a href="{{ url_for('farm_show_all.farmsShowAll') }}">All Farms</a></li>
-      <li class="active"><a href="{{ url_for('farm_manage.farmsManage') }}">My Farms</a></li>
-      <li><a href="{{ url_for('farm_new.newFarm',user_id=user_id) }}">Add New Farm</a></li>
+      <li><a href="{{ url_for('farm.farmsShowAll') }}">All Farms</a></li>
+      <li class="active"><a href="{{ url_for('farm.farmsManage') }}">My Farms</a></li>
+      <li><a href="{{ url_for('farm.newFarm',user_id=user_id) }}">Add New Farm</a></li>
     </ul>
 
     <div class="main-panel">
@@ -36,7 +36,7 @@
                   Delete
                 </button>
 
-                <a href="{{ url_for('farm_manage.farmsManage') }}" id="cancel-btn">
+                <a href="{{ url_for('farm.farmsManage') }}" id="cancel-btn">
                   Cancel
                 </a>
               </div>
