@@ -12,11 +12,8 @@ from .views.farm_show_all import farm_show_all
 from .views.farm_manage import farm_manage
 from .views.farm_delete import farm_delete
 from .views.farm_new import farm_new
-from .views.catalog_show import catalog_show
-from .views.catalog_manage import catalog_manage
-from .views.catalog_edit import catalog_edit
-from .views.catalog_delete import catalog_delete
-from .views.catalog_new import catalog_new
+from .views.catalog import catalog_show, catalog_manage, catalog_new
+from .views.catalog import catalog_edit, catalog_delete
 from .views.error import error
 from .views.event_show import event_show
 from .views.event_manage import event_manage
@@ -48,11 +45,7 @@ app.register_blueprint(farm_manage)
 app.register_blueprint(farm_delete)
 app.register_blueprint(farm_new)
 
-app.register_blueprint(catalog_show)
-app.register_blueprint(catalog_manage)
-app.register_blueprint(catalog_edit)
-app.register_blueprint(catalog_delete)
-app.register_blueprint(catalog_new)
+app.register_blueprint(catalog)
 
 app.register_blueprint(error)
 
