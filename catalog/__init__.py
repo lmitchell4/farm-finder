@@ -23,9 +23,7 @@ from .views.event_manage import event_manage
 from .views.event_edit import event_edit
 from .views.event_delete import event_delete
 from .views.event_new import event_new
-from .views.profile_show import profile_show
-from .views.profile_manage import profile_manage
-from .views.profile_edit import profile_edit
+from .views.profile import profile_show, profile_manage, profile_edit
 from .apis import apis
 
 ############################################################################
@@ -64,9 +62,7 @@ app.register_blueprint(event_edit)
 app.register_blueprint(event_delete)
 app.register_blueprint(event_new)
 
-app.register_blueprint(profile_show)
-app.register_blueprint(profile_manage)
-app.register_blueprint(profile_edit)
+app.register_blueprint(profile)
 
 app.register_blueprint(apis)
 
