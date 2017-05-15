@@ -2,9 +2,9 @@ apt-get -qqy update
 apt-get -qqy install postgresql python-psycopg2
 apt-get -qqy install python-flask python-sqlalchemy
 apt-get -qqy install libmagickwand-dev
+apt-get -qqy install python-oauth2client
 apt-get -qqy install python-pip
 pip install bleach
-pip install oauth2client
 pip install requests
 pip install httplib2
 pip install redis
