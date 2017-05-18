@@ -15,3 +15,5 @@ if __name__ == "__main__":
 
 
 # To do: fix oauth2client library problem
+# To do: fix broken file structure. It was working before; did some thing 
+#         about flask change?
