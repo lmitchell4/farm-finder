@@ -21,7 +21,7 @@ from util import login_required
 
 ############################################################################
 
-farm = Blueprint("farm_show_all", __name__)
+farm = Blueprint("farm", __name__)
 
 @farm.route("/farms")
 def farmsShowAll():
@@ -34,7 +34,6 @@ def farmsShowAll():
   return render_template("farms.html",
                          farms=farms,
                          username=username)
-
                          
 @farm.route("/farms/manage", methods=["GET","POST"])
 @login_required
