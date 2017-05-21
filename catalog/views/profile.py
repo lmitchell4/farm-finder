@@ -21,7 +21,7 @@ from util import login_required
 
 profile = Blueprint("profile", __name__)
 
-@profile_show.route("/farms/<int:farm_id>/profile")
+@profile.route("/farms/<int:farm_id>/profile")
 def profileShow(farm_id):
   """Show the profile for a given farm."""
   farm = db_session.query(Farm).filter_by(id=farm_id).one()
