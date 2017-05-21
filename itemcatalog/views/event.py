@@ -12,8 +12,8 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from flask import flash
 from flask import session as login_session
 
-from catalog.database.dbsetup import Farm, Event
-from catalog.database.dbconnect import db_session
+from itemcatalog.database.dbsetup import Farm, Event
+from itemcatalog.database.dbconnect import db_session
 
 from util import login_required
 

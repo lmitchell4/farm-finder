@@ -11,7 +11,7 @@ import json
 from flask import Blueprint, request, redirect, url_for, flash, make_response
 from flask import session as login_session
 
-from catalog.database.dbconnect import db_session
+from itemcatalog.database.dbconnect import db_session
 
 ############################################################################
 

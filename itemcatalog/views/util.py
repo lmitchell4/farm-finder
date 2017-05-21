@@ -20,8 +20,8 @@ from werkzeug.utils import secure_filename
 from flask import session as login_session
 from flask import Blueprint, current_app, url_for, flash, redirect
 
-from catalog.database.dbsetup import User
-from catalog.database.dbconnect import db_session
+from itemcatalog.database.dbsetup import User
+from itemcatalog.database.dbconnect import db_session
 
 ############################################################################
 

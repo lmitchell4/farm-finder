@@ -2,7 +2,7 @@
 """ Module summary:
 """
 
-from catalog import app
+from itemcatalog import app
 
 ############################################################################
 

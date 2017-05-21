@@ -10,9 +10,9 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from flask import flash
 from flask import session as login_session
 
-from catalog.database.dbsetup import Farm
-from catalog.database.dbconnect import db_session
-from catalog.views.util import imageUploadProfile, imageDeleteProfile
+from itemcatalog.database.dbsetup import Farm
+from itemcatalog.database.dbconnect import db_session
+from itemcatalog.views.util import imageUploadProfile, imageDeleteProfile
 
 from util import login_required
 

@@ -10,7 +10,7 @@ from flask import session as login_session
 from sqlalchemy import asc
 
 import os
-from catalog.database.dbsetup import User
+from item_catalog.database.dbsetup import User
 
 ############################################################################
 

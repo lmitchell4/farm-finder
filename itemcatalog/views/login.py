@@ -17,9 +17,9 @@ from flask import session as login_session
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.client import FlowExchangeError
 
-from catalog.database.dbsetup import User
-from catalog.database.dbconnect import db_session
-from catalog.views.util import createUser, getUserID
+from itemcatalog.database.dbsetup import User
+from itemcatalog.database.dbconnect import db_session
+from itemcatalog.views.util import createUser, getUserID
 
 ############################################################################
 
@@ -27,7 +27,7 @@ login = Blueprint("login", __name__)
 
 # Google API client id:
 G_CLIENT_ID = json.loads(
-    open("catalog/client_secrets.json","r").read())["web"]["client_id"]
+    open("itemcatalog/client_secrets.json","r").read())["web"]["client_id"]
 
 
 # Define url handlers:
@@ -59,7 +59,7 @@ def gconnect():
 
     try:
       # Upgrade the authorization code into a credentials object
-      oauth_flow = flow_from_clientsecrets("catalog/client_secrets.json",
+      oauth_flow = flow_from_clientsecrets("itemcatalog/client_secrets.json",
                                            scope="")
       oauth_flow.redirect_uri = "postmessage"
       credentials = oauth_flow.step2_exchange(code)

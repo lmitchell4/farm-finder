@@ -12,7 +12,7 @@ from dbsetup import Base
 
 
 # Connect to database and create database session:
-engine = create_engine("sqlite:///catalog/database/farmfinder.db")
+engine = create_engine("sqlite:///itemcatalog/database/farmfinder.db")
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)

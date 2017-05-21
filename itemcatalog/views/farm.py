@@ -13,9 +13,9 @@ from flask import session as login_session
 
 from sqlalchemy import asc
 
-from catalog.database.dbsetup import Farm
-from catalog.database.dbconnect import db_session
-from catalog.views.util import imageDeleteProfile
+from itemcatalog.database.dbsetup import Farm
+from itemcatalog.database.dbconnect import db_session
+from itemcatalog.views.util import imageDeleteProfile
 
 from util import login_required
 
