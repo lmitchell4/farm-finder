@@ -16,7 +16,6 @@ from catalog.views.util import imageUploadProfile, imageDeleteProfile
 
 from util import login_required
 
-
 ############################################################################
 
 profile = Blueprint("profile", __name__)

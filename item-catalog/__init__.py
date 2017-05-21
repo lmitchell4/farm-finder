@@ -14,6 +14,7 @@ from .views.profile import profile
 from .views.event import event
 from .views.error import error
 from .apis import apis
+from .views.test import test
 
 ############################################################################
 
@@ -36,3 +37,4 @@ app.register_blueprint(profile)
 app.register_blueprint(event)
 app.register_blueprint(error)
 app.register_blueprint(apis)
+app.register_blueprint(test)
