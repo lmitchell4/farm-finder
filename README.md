@@ -67,7 +67,7 @@ to the `/database` directory, delete the old one, and run the script
 `dbsetdup.py` to create an empty database:
 
     ```
-    $ cd .../database
+    $ cd itemcatalog/database
     $ rm farmfinder.db
     $ python dbsetup.py
     ```
