@@ -23,8 +23,8 @@ app = Flask(__name__)
 
 APPLICATION_NAME = "Farm Finder Application"
 
-app.config["UPLOAD_FOLDER_PROFILE"] = "./catalog/static/userImages/profile"
-app.config["UPLOAD_FOLDER_ITEM"] = "./catalog/static/userImages/item"
+app.config["UPLOAD_FOLDER_PROFILE"] = "./itemcatalog/static/userImages/profile"
+app.config["UPLOAD_FOLDER_ITEM"] = "./itemcatalog/static/userImages/item"
 app.config["ALLOWED_EXTENSIONS"] = set(["pdf", "png", "jpg", "jpeg", "gif"])
 
 app.register_blueprint(index)
