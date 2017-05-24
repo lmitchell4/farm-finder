@@ -71,7 +71,6 @@ def catalogManage(farm_id):
     return redirect(url_for("error.errorShow"))
 
 
-
 @catalog.route("/farms/<int:farm_id>/catalog/new", methods=["GET","POST"])
 @login_required
 def newItem(farm_id):

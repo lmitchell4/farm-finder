@@ -34,7 +34,8 @@ def farmsShowAll():
   return render_template("farms.html",
                          farms=farms,
                          username=username)
-                         
+
+
 @farm.route("/farms/manage", methods=["GET","POST"])
 @login_required
 def farmsManage():
