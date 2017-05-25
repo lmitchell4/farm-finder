@@ -12,7 +12,7 @@
     <ul class="nav nav-tabs nav-justified" id="farm-tabs">
       <li><a href="{{ url_for('farm.farmsShowAll') }}">All Farms</a></li>
       <li class="active"><a href="{{ url_for('farm.farmsManage') }}">My Farms</a></li>
-      <li><a href="{{ url_for('farm.newFarm',user_id=user_id) }}">Add New Farm</a></li>
+      <li><a href="{{ url_for('farm.farmNew',user_id=user_id) }}">Add New Farm</a></li>
     </ul>
 
     <div class="main-panel">

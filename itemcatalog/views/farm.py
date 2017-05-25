@@ -54,7 +54,7 @@ def farmsManage():
 
 @farm.route("/farms/new", methods=["GET","POST"])
 @login_required
-def newFarm():
+def farmNew():
   """Create a new farm and add it to the database."""
   user_id = login_session.get("user_id")
   username = login_session.get("username")
@@ -83,7 +83,7 @@ def newFarm():
       db_session.commit()
 
     flash("New Farm %s Successfully Created" % newFarm.name)
-    return redirect(url_for("farm_manage.farmsManage"))
+    return redirect(url_for("farm.farmsManage"))
 
   else:
     return render_template("farmNew.html",
@@ -111,7 +111,7 @@ def farmDelete(farm_id):
       db_session.delete(farm)
       db_session.commit()
       flash("Farm Successfully Deleted: %s" % (farm.name))
-      return redirect(url_for("farm_manage.farmsManage"))
+      return redirect(url_for("farm.farmsManage"))
 
     else:
       return render_template("farmDelete.html",
