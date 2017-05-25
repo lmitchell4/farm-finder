@@ -119,4 +119,4 @@ def farmDelete(farm_id):
                               username=username)
 
   else:
-    return redirect(url_for("catalog_show.catalogShow",farm_id=farm_id))
+    return redirect(url_for("catalog.catalogShow",farm_id=farm_id))
