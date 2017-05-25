@@ -58,4 +58,4 @@ def gdisconnect():
   # print result
 
   login_session.clear()
-  return redirect(url_for("farm_show_all.farmsShowAll"))
+  return redirect(url_for("farm.farmsShowAll"))
