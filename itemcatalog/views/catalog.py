@@ -124,7 +124,7 @@ def newItem(farm_id):
         db_session.commit()
 
       flash("New Item Successfully Created: %s" % (newItem.name))
-      return redirect(url_for("catalog_manage.catalogManage", farm_id=farm_id))
+      return redirect(url_for("catalog.catalogManage", farm_id=farm_id))
 
     else:
       return render_template("catalogItemNew.html",
@@ -201,7 +201,7 @@ def editCatalogItem(farm_id, item_id):
       db_session.add(item)
       db_session.commit()
       flash("Item Successfully Edited: %s" % (item.name))
-      return redirect(url_for("catalog_manage.catalogManage", farm_id=farm_id))
+      return redirect(url_for("catalog.catalogManage", farm_id=farm_id))
 
     else:
       return render_template("catalogItemEdit.html",
@@ -233,7 +233,7 @@ def deleteCatalogItem(farm_id, item_id):
         imageDeleteItem(filename=item.picture)
 
       flash("Item Successfully Deleted: %s" % (item.name))
-      return redirect(url_for("catalog_manage.catalogManage", farm_id=farm_id))
+      return redirect(url_for("catalog.catalogManage", farm_id=farm_id))
 
     else:
       return render_template("catalogItemDelete.html",
