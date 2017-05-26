@@ -37,7 +37,7 @@ def showLogin():
   user_id = login_session.get("user_id")
 
   if user_id:
-    return redirect(url_for("farm_manage.farmsManage"))
+    return redirect(url_for("farm.farmsManage"))
 
   state = "".join(random.choice(string.ascii_uppercase +
                   string.digits) for x in xrange(32))
