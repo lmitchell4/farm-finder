@@ -94,7 +94,7 @@ def profileEdit(farm_id):
       db_session.add(farm)
       db_session.commit()
       flash("Profile Successfully Edited")
-      return redirect(url_for("profile_manage.profileManage", 
+      return redirect(url_for("profile.profileManage", 
                               farm_id=farm_id))
 
     else:
