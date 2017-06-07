@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  
+  // Add shadow to header when page is scrolled down.
   document.addEventListener("scroll", function() {
     if(window.pageYOffset > 0) {
       $("#header").addClass("header-shadow");
@@ -7,6 +9,7 @@ $(document).ready(function() {
     }
   });
 
+  // Homepage tile animation.
   getDelayTime = function() {
     var times = [];
     var min = 1, max = 1;
