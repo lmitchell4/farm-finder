@@ -3,7 +3,7 @@
 Functions:
   farmsShowAll - Show all farms.
   farmsManage - Show all farms belonging to the current user.
-  newFarm - Create a new farm and add it to the database.
+  farmNew - Create a new farm and add it to the database.
   farmDelete - Delete an existing farm.  
 """
 
