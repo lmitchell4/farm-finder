@@ -72,7 +72,7 @@ def getUserID(email):
 # Helper functions for managing images:
 def allowedFile(filename):
   """Determine if the file has an allowed extension."""
-  app = current_app#._get_current_object()
+  app = current_app
   
   return "." in filename and \
          filename.rsplit(".",1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
@@ -80,7 +80,7 @@ def allowedFile(filename):
 
 def imageUploadProfile(farm_id, file):
   """Upload a profile image."""
-  app = current_app#._get_current_object()
+  app = current_app
   if file and allowedFile(file.filename):
     filename = str(farm_id) + "_" + file.filename
     filename = secure_filename(filename)
@@ -95,14 +95,14 @@ def imageUploadProfile(farm_id, file):
 
 def imageDeleteProfile(filename):
   """Delete a profile image."""
-  app = current_app#._get_current_object()
+  app = current_app
   os.remove(os.path.join(app.config['UPLOAD_FOLDER_PROFILE'], filename))
 
 
 
 def imageUploadItem(farm_id, item_id, file):
   """Upload a catalog item image."""
-  app = current_app#._get_current_object()
+  app = current_app
   if file and allowedFile(file.filename):
     filename = "_".join([str(farm_id),str(item_id),file.filename])
     filename = secure_filename(filename)
@@ -117,5 +117,5 @@ def imageUploadItem(farm_id, item_id, file):
 
 def imageDeleteItem(filename):
   """Delete a catalog item image."""
-  app = current_app#._get_current_object()
+  app = current_app
   os.remove(os.path.join(app.config['UPLOAD_FOLDER_ITEM'], filename))
