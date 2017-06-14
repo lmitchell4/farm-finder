@@ -99,7 +99,6 @@ def imageDeleteProfile(filename):
   os.remove(os.path.join(app.config['UPLOAD_FOLDER_PROFILE'], filename))
 
 
-
 def imageUploadItem(farm_id, item_id, file):
   """Upload a catalog item image."""
   app = current_app
