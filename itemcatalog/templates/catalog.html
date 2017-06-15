@@ -43,7 +43,7 @@
                   <div class="col-xs-12 item">
                     <h3 class="profile">{{ i.name }}</h3>
                     {% if i.picture %}
-                      <img src="{{ url_for('static', filename="".join(['userImages/item/',i.picture])) }}" class="img-float" alt="Profile picture" title=""/>
+                      <img src="{{ url_for('static',filename="".join(['userImages/item/',i.picture])) }}" class="img-float" alt="Profile picture" title=""/>
                     {% endif %}
                     <p>{{ i.description }}</p>
                     <p class="item-price">{{ i.price }}</p>
