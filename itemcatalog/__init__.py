@@ -1,6 +1,6 @@
 
 """ Module summary:
-Initialize the Flask app.
+Initialize the Flask application.
 """
 
 from flask import Flask
@@ -18,21 +18,21 @@ from .apis import apis
 ############################################################################
 
 
-# Initialize flask app:
-app = Flask(__name__)
+# Initialize flask application:
+application = Flask(__name__)
 
 APPLICATION_NAME = "Farm Finder Application"
 
-app.config["UPLOAD_FOLDER_PROFILE"] = "./itemcatalog/static/userImages/profile"
-app.config["UPLOAD_FOLDER_ITEM"] = "./itemcatalog/static/userImages/item"
-app.config["ALLOWED_EXTENSIONS"] = set(["pdf", "png", "jpg", "jpeg", "gif"])
+application.config["UPLOAD_FOLDER_PROFILE"] = "./itemcatalog/static/userImages/profile"
+application.config["UPLOAD_FOLDER_ITEM"] = "./itemcatalog/static/userImages/item"
+application.config["ALLOWED_EXTENSIONS"] = set(["pdf", "png", "jpg", "jpeg", "gif"])
 
-app.register_blueprint(index)
-app.register_blueprint(login)
-app.register_blueprint(logout)
-app.register_blueprint(farm)
-app.register_blueprint(catalog)
-app.register_blueprint(profile)
-app.register_blueprint(event)
-app.register_blueprint(error)
-app.register_blueprint(apis)
+application.register_blueprint(index)
+application.register_blueprint(login)
+application.register_blueprint(logout)
+application.register_blueprint(farm)
+application.register_blueprint(catalog)
+application.register_blueprint(profile)
+application.register_blueprint(event)
+application.register_blueprint(error)
+application.register_blueprint(apis)
