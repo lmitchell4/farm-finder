@@ -15,7 +15,8 @@ open to bartering for items grown by their fellow farmers.
 ## Overview
 
 The site was built with [Python 2.7.6](https://www.python.org/downloads/) and 
-the [Flask](http://flask.pocoo.org/) web development framework. 
+the [Flask](http://flask.pocoo.org/) web development framework, and uses an SQLite database.
+
 
 The repo includes a Vagrant Virtual Machine (VM) that can be used to run the 
 website locally while it is in development. The VM used here is 
